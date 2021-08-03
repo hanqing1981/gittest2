@@ -4,6 +4,7 @@ import pprint
 import csv
 from datetime import datetime,timezone
 import pprint
+import random
 
 
 def getMeetingInfor(vmrNumber):
@@ -26,7 +27,8 @@ def getMeetingInfor(vmrNumber):
 
 
 def saveResultTOCsV(callId_callLegs,requiredFields):
-    with open('meeting_callLegs.csv','w',newline='') as fileHanlder:
+    fileSalt=random.choice(['a','b','c','d','e','f','h','x','y''z'])
+    with open(f'meeting_callLegs{fileSalt}.csv','w',newline='') as fileHanlder:
         csvFileHandler=csv.DictWriter(fileHanlder,fieldnames=requiredFields)
         csvFileHandler.writeheader()
         for eachMeeting in callId_callLegs.values():
